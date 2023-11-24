@@ -1,11 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
-import 'Widgets/CircleButton.dart';
-// import 'home.dart';
-// import 'package:loginuicolors/home.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -18,40 +13,6 @@ class _MyLoginState extends State<MyLogin> {
   bool isChecked = false;
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-
-
-  late Box box1;
-
-  @override
-  void initState() {
-    //
-    super.initState();
-    createBox();
-  }
-
-  void createBox() async {
-    box1 = await Hive.openBox('logininfo');
-    getdata();
-  }
-
-  void getdata() async {
-    if (box1.get('email') != null) {
-      email.text = box1.get('email');
-      isChecked = true;
-      setState(() {
-
-      });
-    }
-    if (box1.get('password') != null) {
-      password.text = box1.get('password');
-      isChecked = true;
-      setState(() {
-
-      });
-    }
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -167,11 +128,63 @@ class _MyLoginState extends State<MyLogin> {
                                   ),
                                 )
                             ),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text("- OR Continue With -", style: TextStyle(
+                                  fontSize: 15
+                                ),)
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                CircleButton(image: 'assets/google.png',)
+                                CircleAvatar(
+                                  radius: 15,
+                                  backgroundImage:AssetImage('assets/google.png'),
+                                  backgroundColor: Colors.transparent,
+                                ),
+                                SizedBox(
+                                  width: 18,
+                                ),
+                                CircleAvatar(
+                                  radius: 18,
+                                  backgroundImage:AssetImage('assets/apple logo.png'),
+                                  backgroundColor: Colors.transparent,
+                                ),
+                                SizedBox(
+                                  width: 18,
+                                ),
+                                CircleAvatar(
+                                  radius: 18,
+                                  backgroundImage:AssetImage('assets/facebook.png'),
+                                  backgroundColor: Colors.transparent,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("Create An Account", style: TextStyle(
+                                  fontSize: 20
+                                ),),
+                                TextButton( onPressed: () {  }, child: Text("Sign Up", style: TextStyle(
+                                  color: Colors.redAccent,
+                                    fontSize: 20,
+                                    decoration: TextDecoration.underline
+                                )) ,)
                               ],
                             )
                           ],
