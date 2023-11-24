@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'Widgets/CircleButton.dart';
 // import 'home.dart';
 // import 'package:loginuicolors/home.dart';
 
@@ -166,6 +167,13 @@ class _MyLoginState extends State<MyLogin> {
                                   ),
                                 )
                             ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CircleButton(image: 'assets/google.png',)
+                              ],
+                            )
                           ],
                         ),
                       )
