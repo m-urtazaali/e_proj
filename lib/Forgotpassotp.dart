@@ -1,14 +1,13 @@
-import 'package:e_proj/Forgotpassotp.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPass extends StatefulWidget {
-  const ForgotPass({Key? key}) : super(key: key);
+class OtpVerify extends StatefulWidget {
+  const OtpVerify({Key? key}) : super(key: key);
 
   @override
-  State<ForgotPass> createState() => _ForgotPassState();
+  State<OtpVerify> createState() => _OtpVerifyState();
 }
 
-class _ForgotPassState extends State<ForgotPass> {
+class _OtpVerifyState extends State<OtpVerify> {
   TextEditingController email = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -24,9 +23,9 @@ class _ForgotPassState extends State<ForgotPass> {
             child: Column(
               children: [
                 Text("Forgot Password?", style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 55,
-                  fontWeight: FontWeight.w700
+                    color: Colors.black,
+                    fontSize: 55,
+                    fontWeight: FontWeight.w700
                 ),),
                 SizedBox(
                   height: 50,
@@ -38,8 +37,8 @@ class _ForgotPassState extends State<ForgotPass> {
                   decoration: InputDecoration(
                       fillColor: Colors.grey.shade100,
                       filled: true,
-                      hintText: "Enter your email address",
-                      prefixIcon: Icon(Icons.email),
+                      hintText: "Enter OTP",
+                      prefixIcon: Icon(Icons.lock),
                       // enabledBorder: OutlineInputBorder(
                       //
                       // ),
@@ -52,10 +51,10 @@ class _ForgotPassState extends State<ForgotPass> {
                   children: [
                     SizedBox(height: 3,),
                     Text("*", style: TextStyle(
-                      color: Colors.red
+                        color: Colors.red
                     ),),
                     SizedBox(width: 3,),
-                    Expanded(child: Text("We will send you a message to set or reset your new password",
+                    Expanded(child: Text("Enter the OTP sent to your email",
                       style: TextStyle(color: Colors.black54),
                     )
                     )
@@ -66,12 +65,7 @@ class _ForgotPassState extends State<ForgotPass> {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height / 14,
                     child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    OtpVerify()));
-                      },
+                      onPressed: () {},
                       child: Text(
                         'Submit',
                         style:
