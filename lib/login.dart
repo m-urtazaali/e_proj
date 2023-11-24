@@ -1,3 +1,4 @@
+import 'package:e_proj/forgotpass.dart';
 import 'package:e_proj/register.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -86,7 +87,12 @@ class _MyLoginState extends State<MyLogin> {
                                 TextButton(
                                   onPressed: () {},
                                   child: TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ForgotPass()));
+                                      },
                                       child: Text(
                                         "Forgot Password?",
                                         style: TextStyle(
