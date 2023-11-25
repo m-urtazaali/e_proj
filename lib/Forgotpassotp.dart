@@ -1,3 +1,4 @@
+import 'package:e_proj/PasswordResetForm.dart';
 import 'package:flutter/material.dart';
 
 class OtpVerify extends StatefulWidget {
@@ -65,7 +66,10 @@ class _OtpVerifyState extends State<OtpVerify> {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height / 14,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => PassForm()));
+                      },
                       child: Text(
                         'Submit',
                         style:
