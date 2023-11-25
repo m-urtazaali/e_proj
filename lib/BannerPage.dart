@@ -1,3 +1,4 @@
+import 'package:e_proj/MainPage.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -55,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: OutlinedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => SplashScreen()));
+                    builder: (context) => home()));
               },
               child: Text(
                 'Get Started',
