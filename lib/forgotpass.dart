@@ -23,11 +23,13 @@ class _ForgotPassState extends State<ForgotPass> {
           child: Container(
             child: Column(
               children: [
-                Text("Forgot Password?", style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 55,
-                  fontWeight: FontWeight.w700
-                ),),
+                Text(
+                  "Forgot Password?",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 55,
+                      fontWeight: FontWeight.w700),
+                ),
                 SizedBox(
                   height: 50,
                 ),
@@ -47,35 +49,42 @@ class _ForgotPassState extends State<ForgotPass> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
                 Row(
                   children: [
-                    SizedBox(height: 3,),
-                    Text("*", style: TextStyle(
-                      color: Colors.red
-                    ),),
-                    SizedBox(width: 3,),
-                    Expanded(child: Text("We will send you a message to set or reset your new password",
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Text(
+                      "*",
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    SizedBox(
+                      width: 3,
+                    ),
+                    Expanded(
+                        child: Text(
+                      "We will send you a message to set or reset your new password",
                       style: TextStyle(color: Colors.black54),
-                    )
-                    )
+                    ))
                   ],
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
                 Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height / 14,
                     child: OutlinedButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    OtpVerify()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => OtpVerify()));
                       },
                       child: Text(
                         'Submit',
-                        style:
-                        TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
