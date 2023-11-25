@@ -80,7 +80,8 @@ class _ForgotPassState extends State<ForgotPass> {
                     child: OutlinedButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => OtpVerify()));
+                            builder: (context) => OtpVerify())
+                        );
                       },
                       child: Text(
                         'Submit',
