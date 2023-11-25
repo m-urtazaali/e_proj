@@ -1,3 +1,4 @@
+import 'package:e_proj/BannerPage.dart';
 import 'package:e_proj/forgotpass.dart';
 import 'package:e_proj/register.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +109,10 @@ class _MyLoginState extends State<MyLogin> {
                                 width: MediaQuery.of(context).size.width,
                                 height: MediaQuery.of(context).size.height / 14,
                                 child: OutlinedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => SplashScreen()));
+                                  },
                                   child: Text(
                                     'Login',
                                     style: TextStyle(
