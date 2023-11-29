@@ -72,36 +72,54 @@ class _homeState extends State<home> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height/10,
 
-              child:Row(
-
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Column(
-                      children: [
-                        Text("Deal Of the Day",style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white
-                        ),),
-                        Text("22h Remaining",style: TextStyle(
-                            fontSize: 23,
+              child:Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top:10.0,left: 5),
+                      child: Column(
+                        children: [
+                          Text("Deal Of the Day",style: TextStyle(
+                            fontSize: 25,
                             color: Colors.white
-                        ),)
-                      ],
+                          ),),
+                          Text("22h Remaining",style: TextStyle(
+                              fontSize: 23,
+                              color: Colors.white
+                          ),)
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width/6,
-                  ),
-                  TextButton(onPressed: (){}, child: Text("View All",style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontStyle: FontStyle.italic
-                  ),))
-                ],
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width/6,
+                    ),
+                    GestureDetector(
+                      onTap: (){},
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          border:Border.all(color:Colors.white)
+                        ),
+                        child: Row(
+                          children: [
+                            Text("View All", style: TextStyle(
+                             color: Colors.white,
+                              fontSize: 25
+                            )),
+                            Icon(Icons.arrow_forward_rounded, color: Colors.white,)
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               )
               ,
-            )
+            ),
+            SizedBox(height: 30,),
+
+
           ],
         ),
       ),
