@@ -285,7 +285,7 @@ class _CheckOutState extends State<CheckOut> {
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.redAccent,
                     shape: RoundedRectangleBorder(
-                      // borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                 ),
