@@ -1,3 +1,4 @@
+import 'package:e_proj/EditProfile.dart';
 import 'package:e_proj/register.dart';
 import 'package:flutter/material.dart';
 // import 'package:loginuicolors/login.dart';
@@ -11,7 +12,7 @@ void main() async {
   await Hive.initFlutter();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: MyLogin(),
+    home: EditProfile(),
     routes: {
       'register': (context) => MyRegister(),
       'login': (context) => MyLogin(),
