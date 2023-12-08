@@ -12,7 +12,7 @@ void main() async {
   await Hive.initFlutter();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: EditProfile(),
+    home: MyLogin(),
     routes: {
       'register': (context) => MyRegister(),
       'login': (context) => MyLogin(),

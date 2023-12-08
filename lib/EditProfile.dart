@@ -1,3 +1,4 @@
+import 'package:e_proj/MainPage.dart';
 import 'package:flutter/material.dart';
 
 class EditProfile extends StatefulWidget {
@@ -12,24 +13,33 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.black,
-        ),
-        title: Text(
-          'Edit Profile',
-          style: TextStyle(color: Colors.black),
-        ),
+        leading: Icon(Icons.list_outlined,size: 30,color: Colors.black),
+        elevation: 5,
+        backgroundColor: Colors.white,
+        // centerTitle: AssetImage(""),
+        title: Image.asset("assets/logo.png"),
         centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+
       ),
+
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Container(
             child: Column(
               children: [
+              Text(
+                  'Edit Profile',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline,
+
+                  ),
+                ),
+                SizedBox(height: 30,),
                 CircleAvatar(
                   radius: 35,
                   backgroundImage: AssetImage('assets/google.png'),
@@ -348,6 +358,34 @@ class _EditProfileState extends State<EditProfile> {
               ],
             ),
           ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        height: 70,
+        elevation: 10,
+        shadowColor: Colors.redAccent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            IconButton(onPressed: () { Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) =>
+                        home())); },
+              icon: Icon(Icons.home_outlined),iconSize: 30,),
+            IconButton(onPressed: () {  },
+              icon: Icon(Icons.trending_up),iconSize: 30,),
+            IconButton(onPressed: () {  },
+              icon: Icon(Icons.add_shopping_cart),iconSize: 30,),
+            IconButton(onPressed: () {  },
+              icon: Icon(Icons.favorite_border),iconSize: 30,),
+            IconButton(onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          EditProfile())); },
+              icon: Icon(Icons.settings),iconSize: 30,color: Colors.redAccent,)
+          ],
         ),
       ),
     );
