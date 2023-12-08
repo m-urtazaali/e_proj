@@ -152,48 +152,342 @@ class _homeState extends State<home> {
                 ),
               ),
               SizedBox(height: 30,),
-              Container(
-                width: 180,
-                padding: const EdgeInsets.all(1),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: Color(0xFFf2f2f2)
-                ),
-                child: Column(
+              SingleChildScrollView(
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Container(
-                          height: 180,
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: Color(0xFFf2f2f2)
-                          ),
-                          child: Stack(
-                            children: [
-                              ClipRRect(borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
-                                  child: Image(
-                                    image: AssetImage("assets/banner.jpg"),)),
-                              Positioned(
-                                top: 12,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(horizontal: 8.3,vertical: 4),
-                                      decoration: BoxDecoration(
-                                          color: Color.fromRGBO(253, 232, 232, 0.8)
+                    Container(
+                      width: 160,
+                      padding: const EdgeInsets.all(1),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Colors.white12
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 180,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.transparent
+                            ),
+                            child: Stack(
+                              children: [
+                                ClipRRect(borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                                    child: Image(
+                                      image: AssetImage("assets/banner.jpg"),)),
+                                Positioned(
+                                  top: 100,
+                                    left: 10,
+                                    child: Text("Product 1",style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                      decoration: TextDecoration.underline
+                                    ),)),
+                                Positioned(
+                                    top: 120,
+                                    left: 10,
+                                    child: Text("Desc",style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.normal,
+
+                                    ),)),
+                                Positioned(
+                                  top: 140,
+                                  bottom: 0,
+                                  left:-105 ,
+                                  child: ButtonTheme(
+                                    // minWidth: 300,
+                                    // height: 100.0,
+                                    child:   OutlinedButton(
+                                       child: Text('Buy Now', style: TextStyle(color: Colors.white)),
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.redAccent,
+                                        minimumSize: Size(MediaQuery.of(context).size.width, 100)
+
                                       ),
-                                      child: Text("25%",style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black),),
-                                    )
+                                      onPressed: () {},
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 160,
+                      padding: const EdgeInsets.all(1),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: Colors.white12
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 180,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.transparent
+                            ),
+                            child: Stack(
+                              children: [
+                                ClipRRect(borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                                    child: Image(
+                                      image: AssetImage("assets/banner.jpg"),)),
+                                Positioned(
+                                    top: 100,
+                                    left: 10,
+                                    child: Text("Product 1",style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        decoration: TextDecoration.underline
+                                    ),)),
+                                Positioned(
+                                    top: 120,
+                                    left: 10,
+                                    child: Text("Desc",style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.normal,
+
+                                    ),)),
+                                Positioned(
+                                  top: 140,
+                                  bottom: 0,
+                                  left:-105 ,
+                                  child: ButtonTheme(
+                                    // minWidth: 300,
+                                    // height: 100.0,
+                                    child:   OutlinedButton(
+                                      child: Text('Buy Now', style: TextStyle(color: Colors.white)),
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.redAccent,
+                                          minimumSize: Size(MediaQuery.of(context).size.width, 100)
+
+                                      ),
+                                      onPressed: () {},
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 30,),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+
+
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height/10,
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(254, 138, 138, 1),
+                      borderRadius: BorderRadius.all(Radius.circular(10))
+                  ),
+                  child:Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text("Trending Products",style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white
+                            ),),
+                            Text.rich(
+                              TextSpan(
+                                style: TextStyle(
+                                  fontSize: 1,
                                 ),
+                                children: [
+                                  WidgetSpan(
+                                    child: Icon(Icons.calendar_month,size: 17,color: Colors.white,),
+                                  ),
+                                  TextSpan(
+                                      text: 'Today Special',style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.white
+                                  )
+                                  )
+                                ],
                               ),
-                              Positioned(
-                                top: 0,
-                                  right: 0,
-                                  child: CircularIcon())
+                            )
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width/5,
+                      ),
+                      GestureDetector(
+                        onTap: (){},
+                        child: Container(
+                          width: 100,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border:Border.all(color:Colors.white,)
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("View All", style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+
+                              )),
+                              Icon(Icons.arrow_forward_rounded, color: Colors.white,size: 15,)
                             ],
                           ),
-                        )
+                        ),
+                      )
+                    ],
+                  )
+                  ,
+                ),
+              ),
+              SizedBox(height: 30,),
+              SingleChildScrollView(
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: 160,
+                      padding: const EdgeInsets.all(1),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: Colors.white12
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 180,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.transparent
+                            ),
+                            child: Stack(
+                              children: [
+                                ClipRRect(borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                                    child: Image(
+                                      image: AssetImage("assets/banner.jpg"),)),
+                                Positioned(
+                                    top: 100,
+                                    left: 10,
+                                    child: Text("Product 1",style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        decoration: TextDecoration.underline
+                                    ),)),
+                                Positioned(
+                                    top: 120,
+                                    left: 10,
+                                    child: Text("Desc",style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.normal,
+
+                                    ),)),
+                                Positioned(
+                                  top: 140,
+                                  bottom: 0,
+                                  left:-90 ,
+                                  child: ButtonTheme(
+                                    // minWidth: 300,
+                                    // height: 100.0,
+                                    child:   OutlinedButton(
+                                      child: Text('Buy Now', style: TextStyle(color: Colors.white)),
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.redAccent,
+                                          minimumSize: Size(MediaQuery.of(context).size.width, 100)
+
+                                      ),
+                                      onPressed: () {},
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 160,
+                      padding: const EdgeInsets.all(1),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: Colors.white12
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 180,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.transparent
+                            ),
+                            child: Stack(
+                              children: [
+                                ClipRRect(borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                                    child: Image(
+                                      image: AssetImage("assets/banner.jpg"),)),
+                                Positioned(
+                                    top: 100,
+                                    left: 10,
+                                    child: Text("Product 1",style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        decoration: TextDecoration.underline
+                                    ),)),
+                                Positioned(
+                                    top: 120,
+                                    left: 10,
+                                    child: Text("Desc",style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.normal,
+
+                                    ),)),
+                                Positioned(
+                                  top: 140,
+                                  bottom: 0,
+                                  left:-90 ,
+                                  child: ButtonTheme(
+                                    // minWidth: 300,
+                                    // height: 100.0,
+                                    child:   OutlinedButton(
+                                      child: Text('Buy Now', style: TextStyle(color: Colors.white)),
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.redAccent,
+                                          minimumSize: Size(MediaQuery.of(context).size.width, 100)
+
+                                      ),
+                                      onPressed: () {},
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
