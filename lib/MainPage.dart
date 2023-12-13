@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_proj/Cart.dart';
 import 'package:e_proj/EditProfile.dart';
+import 'package:e_proj/WishList.dart';
 import 'package:e_proj/trending.dart';
 import 'package:flutter/material.dart';
 
 import 'ViewSreen.dart';
+import 'login.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -19,41 +21,95 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey, // Assign the key to the scaffold
 
         drawer: Drawer(
+          backgroundColor: Colors.red,
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text(
-                  'Drawer Header',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
+                  color: Colors.white,
+                  border: Border(
+                    bottom: Divider.createBorderSide(context,
+                        color: Colors.black, width: 2.0),
                   ),
                 ),
+
+                child: Image.asset("assets/logo.png")
               ),
               ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home'),
+                leading: Icon(Icons.home_outlined,size: 30,color: Colors.white,),
+                title: Text('Home',style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white
+                ),),
                 onTap: () {
-                  // Add your action for Home here
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => home()));
                 },
               ),
+              SizedBox(height: 10,),
               ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
+                leading: Icon(Icons.trending_up,size: 30,color: Colors.white,),
+                title: Text('Trending',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
                 onTap: () {
-                  // Add your action for Settings here
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => trending()));
                 },
               ),
-              // Add more ListTile widgets with icons for additional items in the drawer
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.add_shopping_cart,size: 30,color: Colors.white,),
+                title: Text('Cart',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Cart()));
+                },
+              ),
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.favorite_outline,size: 30,color: Colors.white,),
+                title: Text('WishList',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => wishlist()));
+                },
+              ),
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.settings_outlined,color: Colors.white,size: 30,),
+                title: Text('Settings',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditProfile()));
+                },
+              ),
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.logout_outlined,color: Colors.white,size: 30,
+              ),
+                title: Text("Logout",style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                )),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLogin()));
+                },
+              )
+
             ],
           ),
         ),
@@ -311,71 +367,244 @@ class _homeState extends State<home> {
                           child: Text('New Arrivals', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28))
                       ),
                     ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   crossAxisAlignment: CrossAxisAlignment.end,
-                    //   children: [
-                    //     Text('Summer 25 Collections'),
-                    //     GestureDetector(
-                    //         child: Container(
-                    //             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    //             color: Color.fromRGBO(254, 138, 138, 1),
-                    //             child: Row(
-                    //               children: [
-                    //                 Text(
-                    //                   'View All',
-                    //                   style: TextStyle(
-                    //                     color: Colors.white,
-                    //                   ),
-                    //                 ),
-                    //                 SizedBox(width: 3),
-                    //                 Icon(
-                    //                   Icons.arrow_right_alt_outlined,
-                    //                   color: Colors.white,
-                    //                 )
-                    //               ],
-                    //             )))
-                    //   ],
-                    // ),
                     Container(
-                      height: MediaQuery.of(context).size.height,
+                      height: height,
+                      width: width,
                       child: GridView.count(
                         shrinkWrap: true,
                         primary: false,
                         padding: const EdgeInsets.all(3),
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 15,
+                        mainAxisSpacing: 15,
                         crossAxisCount: 2,
                         children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            color: Colors.teal[100],
-                            child: const Text("He'd have you all unravel at the"),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ViewScreen()));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 10),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(15)),
+                                      child: Image(
+                                        image: AssetImage("assets/banner.jpg"),
+                                        height: 100,
+                                      )),
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Product 1",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Desc",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              )
+                            ],
                           ),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            color: Colors.teal[200],
-                            child: const Text('Heed not the rabble'),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ViewScreen()));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 10),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(15)),
+                                      child: Image(
+                                        image: AssetImage("assets/banner.jpg"),
+                                        height: 100,
+                                      )),
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Product 1",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Desc",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              )
+                            ],
                           ),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            color: Colors.teal[300],
-                            child: const Text('Sound of screams but the'),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ViewScreen()));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 10),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(15)),
+                                      child: Image(
+                                        image: AssetImage("assets/banner.jpg"),
+                                        height: 100,
+                                      )),
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Product 1",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Desc",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              )
+                            ],
                           ),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            color: Colors.teal[400],
-                            child: const Text('Who scream'),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ViewScreen()));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 10),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(15)),
+                                      child: Image(
+                                        image: AssetImage("assets/banner.jpg"),
+                                        height: 100,
+                                      )),
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Product 1",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Desc",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              )
+                            ],
                           ),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            color: Colors.teal[500],
-                            child: const Text('Revolution is coming...'),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ViewScreen()));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 10),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(15)),
+                                      child: Image(
+                                        image: AssetImage("assets/banner.jpg"),
+                                        height: 100,
+                                      )),
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Product 1",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Desc",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              )
+                            ],
                           ),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            color: Colors.teal[600],
-                            child: const Text('Revolution, they...'),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ViewScreen()));
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 10),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(15)),
+                                      child: Image(
+                                        image: AssetImage("assets/banner.jpg"),
+                                        height: 100,
+                                      )),
+                                ),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Product 1",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "Desc",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              )
+                            ],
                           ),
                         ],
                       ),
@@ -391,7 +620,9 @@ class _homeState extends State<home> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => home()));
+                },
                 icon: Icon(Icons.home_outlined),
                 iconSize: 30,
                 color: Colors.redAccent,
@@ -411,7 +642,9 @@ class _homeState extends State<home> {
                 iconSize: 30,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => wishlist()));
+                },
                 icon: Icon(Icons.favorite_border),
                 iconSize: 30,
               ),

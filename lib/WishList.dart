@@ -1,30 +1,27 @@
-import 'package:checkout_screen_ui/checkout_page.dart';
 import 'package:e_proj/MainPage.dart';
-import 'package:e_proj/WishList.dart';
+import 'package:e_proj/ViewSreen.dart';
 import 'package:e_proj/trending.dart';
 import 'package:flutter/material.dart';
 
+import 'Cart.dart';
 import 'EditProfile.dart';
 import 'login.dart';
-class Cart extends StatefulWidget {
-  const Cart({Key? key}) : super(key: key);
+
+class wishlist extends StatefulWidget {
+  const wishlist({Key? key}) : super(key: key);
 
   @override
-  State<Cart> createState() => _CartState();
+  State<wishlist> createState() => _wishlistState();
 }
 
-class _CartState extends State<Cart> {
+class _wishlistState extends State<wishlist> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final List<PriceItem> _priceItems = [
-    PriceItem(name: 'Product A', quantity: 1, totalPriceCents: 5200),
-    PriceItem(name: 'Product B', quantity: 2, totalPriceCents: 8599),
-    PriceItem(name: 'Product C', quantity: 1, totalPriceCents: 2499),
-    PriceItem(name: 'Delivery Charge', quantity: 1, totalPriceCents: 1599),
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: _scaffoldKey, // Assign the key to the scaffold
+
       drawer: Drawer(
         backgroundColor: Colors.red,
         child: ListView(
@@ -125,14 +122,112 @@ class _CartState extends State<Cart> {
         title: Image.asset("assets/logo.png"),
         centerTitle: true,
       ),
-      body: CheckoutPage(
-        priceItems: _priceItems,
-        payToName: 'Vendor Name Here',
-        displayNativePay: true,
-        onNativePay: () => print('Native Pay Clicked'),
-        // isApple: Platform.isIOS,
-        onCardPay: (results) => print( 'Credit card form submitted with results: $results'),
-        // onBack: ()=> Navigator.of(context).pop(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              SizedBox(height: 10,),
+              Text("Wishlist",style: TextStyle(
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+              decorationStyle: TextDecorationStyle.double,
+                // color: Colors.redAccent
+              ),
+              ),
+              SizedBox(height: 30,),
+              ListTile(
+                leading: Image.asset("assets/banner2.jpg"),
+                title: Text("Product 1"),
+                subtitle: Text("Desc...."),
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Icon(Icons.delete_outline, color: Colors.redAccent,),
+                iconColor: Colors.black,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewScreen()));
+                },
+              ),
+              ListTile(
+                leading: Image.asset("assets/banner2.jpg"),
+                title: Text("Product 1"),
+                subtitle: Text("Desc...."),
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Icon(Icons.delete_outline,color: Colors.redAccent,),
+                iconColor: Colors.black,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewScreen()));
+                },
+              ),
+              ListTile(
+                leading: Image.asset("assets/banner2.jpg"),
+                title: Text("Product 1"),
+                subtitle: Text("Desc...."),
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Icon(Icons.delete_outline,color: Colors.redAccent,),
+                iconColor: Colors.black,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewScreen()));
+                },
+              ),
+              ListTile(
+                leading: Image.asset("assets/banner2.jpg"),
+                title: Text("Product 1"),
+                subtitle: Text("Desc...."),
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Icon(Icons.delete_outline,color: Colors.redAccent,),
+                iconColor: Colors.black,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewScreen()));
+                },
+              ),
+              ListTile(
+                leading: Image.asset("assets/banner2.jpg"),
+                title: Text("Product 1"),
+                subtitle: Text("Desc...."),
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Icon(Icons.delete_outline,color: Colors.redAccent,),
+                iconColor: Colors.black,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewScreen()));
+                },
+              ),
+              ListTile(
+                leading: Image.asset("assets/banner2.jpg"),
+                title: Text("Product 1"),
+                subtitle: Text("Desc...."),
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Icon(Icons.delete_outline,color: Colors.redAccent,),
+                iconColor: Colors.black,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewScreen()));
+                },
+              ),
+              ListTile(
+                leading: Image.asset("assets/banner2.jpg"),
+                title: Text("Product 1"),
+                subtitle: Text("Desc...."),
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Icon(Icons.delete_outline,color: Colors.redAccent,),
+                iconColor: Colors.black,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewScreen()));
+                },
+              ),
+              ListTile(
+                leading: Image.asset("assets/banner2.jpg"),
+                title: Text("Product 1"),
+                subtitle: Text("Desc...."),
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Icon(Icons.delete_outline,color: Colors.redAccent,),
+                iconColor: Colors.black,
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewScreen()));
+                },
+              ),
+
+            ],
+          ),
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         height: 70,
@@ -148,7 +243,6 @@ class _CartState extends State<Cart> {
               },
               icon: Icon(Icons.home_outlined),
               iconSize: 30,
-
             ),
             IconButton(
               onPressed: () {
@@ -158,10 +252,11 @@ class _CartState extends State<Cart> {
               iconSize: 30,
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Cart()));
+              },
               icon: Icon(Icons.add_shopping_cart),
               iconSize: 30,
-              color: Colors.redAccent,
             ),
             IconButton(
               onPressed: () {
@@ -169,6 +264,7 @@ class _CartState extends State<Cart> {
               },
               icon: Icon(Icons.favorite_border),
               iconSize: 30,
+              color: Colors.redAccent,
             ),
             IconButton(
               onPressed: () {

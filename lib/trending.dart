@@ -1,9 +1,11 @@
 import 'package:e_proj/Cart.dart';
 import 'package:e_proj/MainPage.dart';
+import 'package:e_proj/WishList.dart';
 import 'package:flutter/material.dart';
 
 import 'EditProfile.dart';
 import 'ViewSreen.dart';
+import 'login.dart';
 
 class trending extends StatefulWidget {
   const trending({Key? key}) : super(key: key);
@@ -21,36 +23,88 @@ class _trendingState extends State<trending> {
       child: Scaffold(
         key: _scaffoldKey,
         drawer: Drawer(
+          backgroundColor: Colors.red,
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text(
-                  'Drawer Header',
-                  style: TextStyle(
+                  decoration: BoxDecoration(
                     color: Colors.white,
-                    fontSize: 24,
+                    border: Border(
+                      bottom: Divider.createBorderSide(context,
+                          color: Colors.black, width: 2.0),
+                    ),
                   ),
+
+                  child: Image.asset("assets/logo.png")
+              ),
+              ListTile(
+                leading: Icon(Icons.home_outlined,size: 30,color: Colors.white,),
+                title: Text('Home',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => home()));
+                },
+              ),
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.trending_up,size: 30,color: Colors.white,),
+                title: Text('Trending',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => trending()));
+                },
+              ),
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.add_shopping_cart,size: 30,color: Colors.white,),
+                title: Text('Cart',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Cart()));
+                },
+              ),
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.favorite_outline,size: 30,color: Colors.white,),
+                title: Text('WishList',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => wishlist()));
+                },
+              ),
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.settings_outlined,color: Colors.white,size: 30,),
+                title: Text('Settings',style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditProfile()));
+                },
+              ),
+              SizedBox(height: 10,),
+              ListTile(
+                leading: Icon(Icons.logout_outlined,color: Colors.white,size: 30,
                 ),
-              ),
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home'),
-                onTap: () {
-                  // Add your action for Home here
+                title: Text("Logout",style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                )),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLogin()));
                 },
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
-                onTap: () {
-                  // Add your action for Settings here
-                },
-              ),
-              // Add more ListTile widgets with icons for additional items in the drawer
+              )
+
             ],
           ),
         ),
@@ -346,7 +400,9 @@ class _trendingState extends State<trending> {
                 iconSize: 30,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => trending()));
+                },
                 icon: Icon(Icons.trending_up),
                 iconSize: 30,
                 color: Colors.redAccent,
@@ -359,7 +415,9 @@ class _trendingState extends State<trending> {
                 iconSize: 30,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => wishlist()));
+                },
                 icon: Icon(Icons.favorite_border),
                 iconSize: 30,
               ),
