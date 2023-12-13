@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:e_proj/Cart.dart';
 import 'package:e_proj/EditProfile.dart';
+import 'package:e_proj/trending.dart';
 import 'package:flutter/material.dart';
 
 import 'ViewSreen.dart';
@@ -300,43 +302,47 @@ class _homeState extends State<home> {
                                 ],
                               );
                             })),
-                    Image.asset('assets/banner.jpg'),
+                    Image.asset('assets/banner2.jpg'),
                     SizedBox(
-                      height: 5,
+                      height: 25,
                     ),
-                    Container(child: Text('New Arrivals', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18))),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text('Summer 25 Collections'),
-                        GestureDetector(
-                            child: Container(
-                                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                                color: Color.fromRGBO(254, 138, 138, 1),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      'View All',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(width: 3),
-                                    Icon(
-                                      Icons.arrow_right_alt_outlined,
-                                      color: Colors.white,
-                                    )
-                                  ],
-                                )))
-                      ],
+                    Center(
+                      child: Container(
+                          child: Text('New Arrivals', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28))
+                      ),
                     ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   crossAxisAlignment: CrossAxisAlignment.end,
+                    //   children: [
+                    //     Text('Summer 25 Collections'),
+                    //     GestureDetector(
+                    //         child: Container(
+                    //             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    //             color: Color.fromRGBO(254, 138, 138, 1),
+                    //             child: Row(
+                    //               children: [
+                    //                 Text(
+                    //                   'View All',
+                    //                   style: TextStyle(
+                    //                     color: Colors.white,
+                    //                   ),
+                    //                 ),
+                    //                 SizedBox(width: 3),
+                    //                 Icon(
+                    //                   Icons.arrow_right_alt_outlined,
+                    //                   color: Colors.white,
+                    //                 )
+                    //               ],
+                    //             )))
+                    //   ],
+                    // ),
                     Container(
-                      height: size.height,
+                      height: MediaQuery.of(context).size.height,
                       child: GridView.count(
                         shrinkWrap: true,
                         primary: false,
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(3),
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
                         crossAxisCount: 2,
@@ -391,12 +397,16 @@ class _homeState extends State<home> {
                 color: Colors.redAccent,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => trending()));
+                },
                 icon: Icon(Icons.trending_up),
                 iconSize: 30,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Cart()));
+                },
                 icon: Icon(Icons.add_shopping_cart),
                 iconSize: 30,
               ),

@@ -1,4 +1,5 @@
 import 'package:e_proj/MainPage.dart';
+import 'package:e_proj/trending.dart';
 import 'package:flutter/material.dart';
 
 class EditProfile extends StatefulWidget {
@@ -373,9 +374,14 @@ class _EditProfileState extends State<EditProfile> {
                     builder: (context) =>
                         home())); },
               icon: Icon(Icons.home_outlined),iconSize: 30,),
-            IconButton(onPressed: () {  },
+            IconButton(onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          trending()));  },
               icon: Icon(Icons.trending_up),iconSize: 30,),
-            IconButton(onPressed: () {  },
+            IconButton(onPressed: () {
+            },
               icon: Icon(Icons.add_shopping_cart),iconSize: 30,),
             IconButton(onPressed: () {  },
               icon: Icon(Icons.favorite_border),iconSize: 30,),
